@@ -20,30 +20,35 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="阿川的学习记录">
-<meta property="og:type" content="website">
-<meta property="og:title" content="GG1Boom&#39;s Notes">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="#项目开发流程  首先简单了解下开发流程    针对网易云平台歌手的热门评论做爬虫需求： 1.自动查询某个歌手的所有热门歌曲 2.自动获取每一首歌的基础信息，专辑信息 3.自动获取每一首歌的热门评论，最新评论 4.对所有的热门评论进行统计形成词云">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java网易云音乐评论爬取">
+<meta property="og:url" content="http://example.com/2021/01/14/Java%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E8%AF%84%E8%AE%BA%E7%88%AC%E5%8F%96/index.html">
 <meta property="og:site_name" content="GG1Boom&#39;s Notes">
-<meta property="og:description" content="阿川的学习记录">
+<meta property="og:description" content="#项目开发流程  首先简单了解下开发流程    针对网易云平台歌手的热门评论做爬虫需求： 1.自动查询某个歌手的所有热门歌曲 2.自动获取每一首歌的基础信息，专辑信息 3.自动获取每一首歌的热门评论，最新评论 4.对所有的热门评论进行统计形成词云">
 <meta property="og:locale">
+<meta property="og:image" content="http://example.com/images/2.1-1.svg">
+<meta property="article:published_time" content="2021-01-14T08:49:21.000Z">
+<meta property="article:modified_time" content="2021-01-14T09:25:25.707Z">
 <meta property="article:author" content="阿川">
+<meta property="article:tag" content="Java爬虫项目">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/images/2.1-1.svg">
 
-<link rel="canonical" href="http://example.com/">
+<link rel="canonical" href="http://example.com/2021/01/14/Java%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E8%AF%84%E8%AE%BA%E7%88%AC%E5%8F%96/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-Hans'
   };
 </script>
 
-  <title>GG1Boom's Notes</title>
+  <title>Java网易云音乐评论爬取 | GG1Boom's Notes</title>
   
 
 
@@ -165,9 +170,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
@@ -183,10 +189,9 @@
       <meta itemprop="name" content="GG1Boom's Notes">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/14/Java%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E8%AF%84%E8%AE%BA%E7%88%AC%E5%8F%96/" class="post-title-link" itemprop="url">Java网易云音乐评论爬取</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          Java网易云音乐评论爬取
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -240,7 +245,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>#项目开发流程</p>
+        <p>#项目开发流程</p>
 <ul>
 <li>首先简单了解下开发流程</li>
 </ul>
@@ -253,249 +258,65 @@
 <p>4.对所有的热门评论进行统计形成词云</p>
 </li>
 </ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/14/Java%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E8%AF%84%E8%AE%BA%E7%88%AC%E5%8F%96/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
+<a id="more"></a>
+
+<h3 id="API"><a href="#API" class="headerlink" title="API"></a>API</h3><p>找到一个获取歌手歌单信息的API</p>
+<table>
+<thead>
+<tr>
+<th><strong>信息描述</strong></th>
+<th><strong>信息说明</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>API地址</td>
+<td><a target="_blank" rel="noopener" href="http://neteaseapi.youkeda.com:3000/artists?id=xxx">http://neteaseapi.youkeda.com:3000/artists?id=xxx</a></td>
+</tr>
+<tr>
+<td>参数</td>
+<td>id-歌手id</td>
+</tr>
+<tr>
+<td>请求方式</td>
+<td>GET</td>
+</tr>
+</tbody></table>
+<p>歌手id可以在网易云里面轻松找到</p>
+
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
+          <div class="post-tags">
+              <a href="/tags/Java%E7%88%AC%E8%99%AB%E9%A1%B9%E7%9B%AE/" rel="tag"># Java爬虫项目</a>
+          </div>
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/14/nexT%E5%BF%83%E5%BE%97/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/1.jpg">
-      <meta itemprop="name" content="阿川">
-      <meta itemprop="description" content="阿川的学习记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GG1Boom's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/14/nexT%E5%BF%83%E5%BE%97/" class="post-title-link" itemprop="url">nexT心得</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2021-01-14 03:53:09 / 修改时间：15:57:40" itemprop="dateCreated datePublished" datetime="2021-01-14T03:53:09+08:00">2021-01-14</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/01/14/nexT%E5%BF%83%E5%BE%97/" class="post-meta-item leancloud_visitors" data-flag-title="nexT心得" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/01/14/nexT%E5%BF%83%E5%BE%97/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/14/nexT%E5%BF%83%E5%BE%97/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="下载next主题"><a href="#下载next主题" class="headerlink" title="下载next主题"></a>下载next主题</h1><p><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/">Hexo</a> 是高效的静态站点生成框架，她基于 <a target="_blank" rel="noopener" href="https://nodejs.org/">Node.js</a>。 通过 Hexo 你可以轻松地使用 Markdown 编写文章，除了 Markdown 本身的语法之外，还可以使用 Hexo 提供的 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/tag-plugins.html">标签插件</a> 来快速的插入特定形式的内容。</p>
-<blockquote>
-<p>你可以访问 <a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/">Hexo 的文档</a> 了解如何安装 Hexo,之后我也会再简单写一下如何安装hexo,和国内下载hexo中遇到的一些坑。</p>
-</blockquote>
-<p>##下载方法一：</p>
-<p>我先是尝试了用git clone，可能是最近加速器出了点问题，运营商快跑路了。</p>
-<p>在hexo文件夹内使用命令<code>git clone https://github.com/iissnan/hexo-theme-next themes/next</code></p>
-<p>此方法失败</p>
-<hr>
-<p>##下载方法二：</p>
-<ol>
-<li>前往 NexT 版本 <a target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next/releases">发布页面</a>。</li>
-<li>选择你所需要的版本，下载 Download 区域下的 Source Code (zip) 到本地。例如，下载 v0.4.0 版本： <img src="https://theme-next.iissnan.com/uploads/five-minutes-setup/download-stable-version.png" alt="next-releases"></li>
-<li>解压所下载的压缩包至站点的 themes 目录下， 并将 解压后的文件夹名称（<code>hexo-theme-next-0.4.0</code>）更改为 <code>next</code>。</li>
-</ol>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/14/nexT%E5%BF%83%E5%BE%97/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-Hans">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/11/MarkDown%E7%AC%94%E8%AE%B0/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/1.jpg">
-      <meta itemprop="name" content="阿川">
-      <meta itemprop="description" content="阿川的学习记录">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="GG1Boom's Notes">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/11/MarkDown%E7%AC%94%E8%AE%B0/" class="post-title-link" itemprop="url">MarkDown笔记</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-11 13:09:26" itemprop="dateCreated datePublished" datetime="2021-01-11T13:09:26+08:00">2021-01-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-14 17:16:43" itemprop="dateModified" datetime="2021-01-14T17:16:43+08:00">2021-01-14</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%8D%9A%E5%AE%A2/" itemprop="url" rel="index"><span itemprop="name">博客</span></a>
-                </span>
-            </span>
-
-          
-            <span id="/2021/01/11/MarkDown%E7%AC%94%E8%AE%B0/" class="post-meta-item leancloud_visitors" data-flag-title="MarkDown笔记" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="leancloud-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="far fa-comment"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/01/11/MarkDown%E7%AC%94%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/01/11/MarkDown%E7%AC%94%E8%AE%B0/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><code>前后都用三个点包裹来表示行内代码 </code></p>
-<p><del>我是删除线</del><code>用~~ ~~</code>包裹</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">用```开头表示代码块的语言，开始编写代码块</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/11/MarkDown%E7%AC%94%E8%AE%B0/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/14/nexT%E5%BF%83%E5%BE%97/" rel="prev" title="nexT心得">
+      <i class="fa fa-chevron-left"></i> nexT心得
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
-  
-
-
   
 
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -542,6 +363,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#API"><span class="nav-number">1.</span> <span class="nav-text">API</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
