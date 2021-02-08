@@ -29,7 +29,7 @@
 <meta property="og:description" content="前言为什么这个时候才开始做一些java基础的梳理博客呢，最近也在做一些java的小项目遇到些瓶颈，但很多知识久了不怎么用会遗忘掉。最近也在看GitHub上大佬的《java工程师成神之路》之类的Github Page，这个Github Page良心推荐给大家（虽然暂时应该没人看我的博客😂）。也买了一本《Java核心卷 I》，一边看书视频，码代码梳理一遍感觉能加深印象和对底层的理解吧，便于自己复习理">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-01-21T17:01:04.000Z">
-<meta property="article:modified_time" content="2021-02-08T04:00:22.377Z">
+<meta property="article:modified_time" content="2021-02-08T11:58:23.414Z">
 <meta property="article:author" content="阿川">
 <meta property="article:tag" content="Java基础">
 <meta name="twitter:card" content="summary">
@@ -206,7 +206,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-08 12:00:22" itemprop="dateModified" datetime="2021-02-08T12:00:22+08:00">2021-02-08</time>
+                <time title="修改时间：2021-02-08 19:58:23" itemprop="dateModified" datetime="2021-02-08T19:58:23+08:00">2021-02-08</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,7 +264,27 @@
 <h3 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h3><ul>
 <li>强类型语言：要求变量的使用要严格符合规定，所有变量都必须先定义才能使用</li>
 </ul>
-<h3 id="JavaDoc"><a href="#JavaDoc" class="headerlink" title="JavaDoc"></a>JavaDoc</h3>
+<h3 id="JavaDoc"><a href="#JavaDoc" class="headerlink" title="JavaDoc"></a>JavaDoc</h3><p>文档注释会显示参数、</p>
+<h2 id="Maven"><a href="#Maven" class="headerlink" title="Maven"></a>Maven</h2><p>在javaweb开发中要导入大量的jar包，需要一个技术自动导入和配置jar包</p>
+<h3 id="Maven项目架构管理工具"><a href="#Maven项目架构管理工具" class="headerlink" title="Maven项目架构管理工具"></a>Maven项目架构管理工具</h3><p>Maven的核心思想：约定大于配置</p>
+<p><a target="_blank" rel="noopener" href="https://maven.apache.org/">官网</a></p>
+<p>下载完成后解压。</p>
+<p>####配置环境变量</p>
+<ul>
+<li>M2_HOME    maven目录下的bin目录</li>
+<li>MAVEN_HOME    maven的目录</li>
+<li>在系统的path中配置 %MAVEN_HOME%\bin</li>
+</ul>
+<h4 id="阿里云镜像"><a href="#阿里云镜像" class="headerlink" title="阿里云镜像"></a>阿里云镜像</h4><p>修改config中的setting</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> <span class="tag">&lt;<span class="name">mirror</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">id</span>&gt;</span>nexus-aliyun<span class="tag">&lt;/<span class="name">id</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">mirrorOf</span>&gt;</span>central<span class="tag">&lt;/<span class="name">mirrorOf</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">name</span>&gt;</span>Nexus aliyun<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.aliyun.com/nexus/content/groups/public<span class="tag">&lt;/<span class="name">url</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;/<span class="name">mirror</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="本地仓库"><a href="#本地仓库" class="headerlink" title="本地仓库"></a>本地仓库</h4><p>建立一个本地仓库：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">localRepository</span>&gt;</span>E:\MAVEN\apache-maven-3.6.3\maven_repo<span class="tag">&lt;/<span class="name">localRepository</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<p>###在IDEA中创建</p>
+
     </div>
 
     
@@ -345,7 +365,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">java基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-number">2.0.1.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="nav-number">2.0.2.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.0.3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaDoc"><span class="nav-number">2.0.4.</span> <span class="nav-text">JavaDoc</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#java%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95"><span class="nav-number">2.</span> <span class="nav-text">java基础语法</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E9%87%8A"><span class="nav-number">2.0.1.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="nav-number">2.0.2.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.0.3.</span> <span class="nav-text">数据类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JavaDoc"><span class="nav-number">2.0.4.</span> <span class="nav-text">JavaDoc</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven"><span class="nav-number">2.1.</span> <span class="nav-text">Maven</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven%E9%A1%B9%E7%9B%AE%E6%9E%B6%E6%9E%84%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7"><span class="nav-number">2.1.1.</span> <span class="nav-text">Maven项目架构管理工具</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F"><span class="nav-number">2.1.1.1.</span> <span class="nav-text">阿里云镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93"><span class="nav-number">2.1.1.2.</span> <span class="nav-text">本地仓库</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -496,5 +516,5 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
 });
 </script>
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"right","width":100,"height":200},"mobile":{"show":false},"log":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/koharu.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
 </html>
