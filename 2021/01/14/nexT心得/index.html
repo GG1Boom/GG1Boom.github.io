@@ -43,8 +43,10 @@
 <meta property="og:image" content="http://example.com/images/leancloud.png">
 <meta property="og:image" content="http://example.com/images/valine%E6%B5%8F%E8%A7%881.png">
 <meta property="og:image" content="http://example.com/images/valine%E6%B5%8F%E8%A7%882.png">
+<meta property="og:image" content="https://xtlei.oss-cn-hongkong.aliyuncs.com/xtlei/7_1.png">
+<meta property="og:image" content="https://xtlei.oss-cn-hongkong.aliyuncs.com/xtlei/7_2.png">
 <meta property="article:published_time" content="2021-01-13T19:53:09.000Z">
-<meta property="article:modified_time" content="2021-01-14T13:22:46.114Z">
+<meta property="article:modified_time" content="2021-02-07T16:57:12.807Z">
 <meta property="article:author" content="阿川">
 <meta property="article:tag" content="nexT">
 <meta name="twitter:card" content="summary">
@@ -214,10 +216,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-01-14 03:53:09 / 修改时间：21:22:46" itemprop="dateCreated datePublished" datetime="2021-01-14T03:53:09+08:00">2021-01-14</time>
+              <time title="创建时间：2021-01-14 03:53:09" itemprop="dateCreated datePublished" datetime="2021-01-14T03:53:09+08:00">2021-01-14</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-02-08 00:57:12" itemprop="dateModified" datetime="2021-02-08T00:57:12+08:00">2021-02-08</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -400,6 +408,32 @@
 <p><img src="/images/valine%E6%B5%8F%E8%A7%881.png" alt="valine浏览1"></p>
 <p><img src="/images/valine%E6%B5%8F%E8%A7%882.png" alt="valine浏览2"></p>
 <p>评论功能就开启啦</p>
+<h2 id="更新"><a href="#更新" class="headerlink" title="更新"></a>更新</h2><p>增加实时聊天功能 源自 <a target="_blank" rel="noopener" href="http://xietonglei.xyz/2019/11/13/Github+Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%EF%BC%887%EF%BC%89%E2%80%94Next%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%964/">大佬博客</a></p>
+<p>难得自己打了，避免大佬博客挂掉，CTRL+C一波</p>
+<h4 id="DaoVoice在线联系"><a href="#DaoVoice在线联系" class="headerlink" title="DaoVoice在线联系"></a>DaoVoice在线联系</h4><p><strong>实现效果图</strong><br><a target="_blank" rel="noopener" href="https://xtlei.oss-cn-hongkong.aliyuncs.com/xtlei/7_1.png"><img src="https://xtlei.oss-cn-hongkong.aliyuncs.com/xtlei/7_1.png" alt=" "></a></p>
+<p><strong>具体实现方法</strong><br>首先在daovoice注册账号<a target="_blank" rel="noopener" href="http://dashboard.daovoice.io/get-started"><strong>点我注册</strong></a>,邀请码是0f81ff2f，注册完成后会得到一个 app_id:<br><a target="_blank" rel="noopener" href="https://xtlei.oss-cn-hongkong.aliyuncs.com/xtlei/7_2.png"><img src="https://xtlei.oss-cn-hongkong.aliyuncs.com/xtlei/7_2.png" alt=" "></a></p>
+<p>记下这个app_id的值，然后打开/themes/next/layout/_partials/head.swig,写下如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;% if theme.daovoice %&#125;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">  (function(i,s,o,g,r,a,m)&#123;i[&quot;DaoVoiceObject&quot;]&#x3D;r;i[r]&#x3D;i[r]||function()&#123;(i[r].q&#x3D;i[r].q||[]).push(arguments)&#125;,i[r].l&#x3D;1*new Date();a&#x3D;s.createElement(o),m&#x3D;s.getElementsByTagName(o)[0];a.async&#x3D;1;a.src&#x3D;g;a.charset&#x3D;&quot;utf-8&quot;;m.parentNode.insertBefore(a,m)&#125;)(window,document,&quot;script&quot;,(&#39;https:&#39; &#x3D;&#x3D; document.location.protocol ? &#39;https:&#39; : &#39;http:&#39;) + &quot;&#x2F;&#x2F;widget.daovoice.io&#x2F;widget&#x2F;0f81ff2f.js&quot;,&quot;daovoice&quot;)</span><br><span class="line">  daovoice(&#39;init&#39;, &#123;</span><br><span class="line">      app_id: &quot;&#123;&#123;theme.daovoice_app_id&#125;&#125;&quot;</span><br><span class="line">    &#125;);</span><br><span class="line">  daovoice(&#39;update&#39;);</span><br><span class="line">  &lt;&#x2F;script&gt;</span><br><span class="line">&#123;% endif %&#125;</span><br></pre></td></tr></table></figure>
+<p>复制</p>
+<p>接着打开主题配置文件，在最后写下如下代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"># Online contact </span><br><span class="line">daovoice: true</span><br><span class="line">daovoice_app_id: 这里填你的刚才获得的 app_id</span><br></pre></td></tr></table></figure>
+<p>复制</p>
+<p>重新hexo g，hexo s就能看到效果了。</p>
+<h3 id="关于下载插件时npm卡住"><a href="#关于下载插件时npm卡住" class="headerlink" title="关于下载插件时npm卡住"></a>关于下载插件时npm卡住</h3><p>####方案一：安装cnpm镜像</p>
+<p>这个是比较常用的方法，我首先也是使用了这个方法。cnpm的安装方法，参考<a target="_blank" rel="noopener" href="http://npm.taobao.org/">http://npm.taobao.org/</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g cnpm --registry&#x3D;https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p>cmd输入以上命令就可以了，然后输入</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install -g @angular&#x2F;cli</span><br></pre></td></tr></table></figure>
+<p>后面的操作跟不使用镜像的操作是差不多的。<br>但是笔者在后续使用过程中遇到了一些问题，运行ng eject后发生了一些错误，所以放弃了这个方案，采用了方案二。</p>
+<p>####方案二：使用代理registry</p>
+<p>在网上查阅了一些资料后，决定使用代理的方式，方法也很简单，就是</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm config set registry https:&#x2F;&#x2F;registry.npm.taobao.org</span><br></pre></td></tr></table></figure>
+<p>然后后续的install等命令还是通过npm运作，而不是cnpm。</p>
+<h2 id="关于下一波更新"><a href="#关于下一波更新" class="headerlink" title="关于下一波更新"></a>关于下一波更新</h2><ul>
+<li>想搞个看板娘出来</li>
+<li>有些文章想弄密码保护</li>
+<li>百度和谷歌的搜索推广</li>
+</ul>
 <hr>
 <p>未完待更…</p>
 
@@ -486,7 +520,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDnext%E4%B8%BB%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">下载next主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E5%AE%9A%E4%B8%BB%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">设定主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%8F%9C%E5%8D%95"><span class="nav-number">3.</span> <span class="nav-text">设置菜单</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%AF%AD%E8%A8%80"><span class="nav-number">4.</span> <span class="nav-text">设置语言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E6%88%AA%E6%96%AD"><span class="nav-number">5.</span> <span class="nav-text">首页文章截断</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%A4%B4%E5%83%8F"><span class="nav-number">6.</span> <span class="nav-text">设置头像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%B5%8F%E8%A7%88%E4%BA%BA%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%92%8C%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F"><span class="nav-number">7.</span> <span class="nav-text">设置浏览人数统计和评论系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F"><span class="nav-number">7.1.</span> <span class="nav-text">评论系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96APP-ID-%E5%92%8C-APP-Key"><span class="nav-number">7.1.1.</span> <span class="nav-text">获取APP ID 和 APP Key</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BDnext%E4%B8%BB%E9%A2%98"><span class="nav-number">1.</span> <span class="nav-text">下载next主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E5%AE%9A%E4%B8%BB%E9%A2%98"><span class="nav-number">2.</span> <span class="nav-text">设定主题</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%8F%9C%E5%8D%95"><span class="nav-number">3.</span> <span class="nav-text">设置菜单</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E8%AF%AD%E8%A8%80"><span class="nav-number">4.</span> <span class="nav-text">设置语言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A6%96%E9%A1%B5%E6%96%87%E7%AB%A0%E6%88%AA%E6%96%AD"><span class="nav-number">5.</span> <span class="nav-text">首页文章截断</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E5%A4%B4%E5%83%8F"><span class="nav-number">6.</span> <span class="nav-text">设置头像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%B5%8F%E8%A7%88%E4%BA%BA%E6%95%B0%E7%BB%9F%E8%AE%A1%E5%92%8C%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F"><span class="nav-number">7.</span> <span class="nav-text">设置浏览人数统计和评论系统</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F"><span class="nav-number">7.1.</span> <span class="nav-text">评论系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96APP-ID-%E5%92%8C-APP-Key"><span class="nav-number">7.1.1.</span> <span class="nav-text">获取APP ID 和 APP Key</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0"><span class="nav-number">7.2.</span> <span class="nav-text">更新</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#DaoVoice%E5%9C%A8%E7%BA%BF%E8%81%94%E7%B3%BB"><span class="nav-number">7.2.0.1.</span> <span class="nav-text">DaoVoice在线联系</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E4%B8%8B%E8%BD%BD%E6%8F%92%E4%BB%B6%E6%97%B6npm%E5%8D%A1%E4%BD%8F"><span class="nav-number">7.2.1.</span> <span class="nav-text">关于下载插件时npm卡住</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B3%E4%BA%8E%E4%B8%8B%E4%B8%80%E6%B3%A2%E6%9B%B4%E6%96%B0"><span class="nav-number">7.3.</span> <span class="nav-text">关于下一波更新</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
