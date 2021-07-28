@@ -86,13 +86,6 @@
   </url>
   
   <url>
-    <loc>https://achuanloveachun.top/404/index.html</loc>
-    
-    <lastmod>2021-05-25</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://achuanloveachun.top/about/index.html</loc>
     
     <lastmod>2021-05-25</lastmod>
@@ -107,7 +100,14 @@
   </url>
   
   <url>
-    <loc>https://achuanloveachun.top/categories/index.html</loc>
+    <loc>https://achuanloveachun.top/404/index.html</loc>
+    
+    <lastmod>2021-05-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://achuanloveachun.top/contact/index.html</loc>
     
     <lastmod>2021-05-25</lastmod>
     
@@ -121,14 +121,7 @@
   </url>
   
   <url>
-    <loc>https://achuanloveachun.top/supervise/index.html</loc>
-    
-    <lastmod>2021-05-25</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://achuanloveachun.top/contact/index.html</loc>
+    <loc>https://achuanloveachun.top/categories/index.html</loc>
     
     <lastmod>2021-05-25</lastmod>
     
@@ -156,7 +149,7 @@
   </url>
   
   <url>
-    <loc>https://achuanloveachun.top/time/index.html</loc>
+    <loc>https://achuanloveachun.top/supervise/index.html</loc>
     
     <lastmod>2021-05-25</lastmod>
     
@@ -164,6 +157,13 @@
   
   <url>
     <loc>https://achuanloveachun.top/tags/index.html</loc>
+    
+    <lastmod>2021-05-25</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://achuanloveachun.top/time/index.html</loc>
     
     <lastmod>2021-05-25</lastmod>
     
@@ -186,14 +186,7 @@
   </url>
   
   <url>
-    <loc>https://achuanloveachun.top/tags/Java%E5%9F%BA%E7%A1%80/</loc>
-    <lastmod>2021-07-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://achuanloveachun.top/tags/Hexo/</loc>
+    <loc>https://achuanloveachun.top/tags/MakeDown/</loc>
     <lastmod>2021-07-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -207,7 +200,14 @@
   </url>
   
   <url>
-    <loc>https://achuanloveachun.top/tags/MakeDown/</loc>
+    <loc>https://achuanloveachun.top/tags/Hexo/</loc>
+    <lastmod>2021-07-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://achuanloveachun.top/tags/Java%E5%9F%BA%E7%A1%80/</loc>
     <lastmod>2021-07-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
@@ -258,13 +258,6 @@
   </url>
   
   <url>
-    <loc>https://achuanloveachun.top/categories/Java/</loc>
-    <lastmod>2021-07-28</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://achuanloveachun.top/categories/%E5%8D%9A%E5%AE%A2/</loc>
     <lastmod>2021-07-28</lastmod>
     <changefreq>daily</changefreq>
@@ -273,6 +266,13 @@
   
   <url>
     <loc>https://achuanloveachun.top/categories/mysql/</loc>
+    <lastmod>2021-07-28</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://achuanloveachun.top/categories/Java/</loc>
     <lastmod>2021-07-28</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
